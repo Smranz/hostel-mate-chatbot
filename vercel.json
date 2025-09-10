@@ -1,7 +1,12 @@
 {
-  "build": {
-    "env": {
-      "NODE_VERSION": "18.x"
+  "builds": [
+    {
+      "src": "hostel-mate-frontend/package.json",
+      "use": "@vercel/static-build",
+      "config": { "distDir": "build" }
     }
-  }
+  ],
+  "routes": [
+    { "src": "/(.*)", "dest": "/hostel-mate-frontend/build/$1" }
+  ]
 }
